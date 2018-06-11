@@ -71,17 +71,22 @@ turn = 'X'
 
 for i in range(9):
     print("Turn for "+ turn +" ,which space will you mark ?")
-    move=input()
-    gameBoard[move]=turn
+    
+    while True:
+        move=input()
+        if(gameBoard[move]==' '):
+            gameBoard[move]=turn
+            break
+        else:
+            print('Spot already taken, try again')
+            continue
     if turn == 'X':
         turn = 'O'
     else:
         turn = 'X'
     GamePrinter(gameBoard)
     GameChecker(gameBoard)
-    #if(Winner == ''):
-        #print("bhooo")
-        #continue
+    
     if(Winner == 'X' or Winner == 'O'):        
         break
     
